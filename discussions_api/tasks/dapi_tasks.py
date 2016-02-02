@@ -372,7 +372,8 @@ class PatchCommentsTask(DiscussionsApiTasks):
         PATCH_comment
         """
         new_body_size = random.choice(dapi_constants.BODY.keys())
-        data = {"raw_body": dapi_constants.BODY[new_body_size]}
+        #data = {"raw_body": dapi_constants.BODY[new_body_size]}
+        data = {"read": True}
         name = "edit_comment_with_{}".format(new_body_size) if self.verbose else "PATCH_comment"
         comment_id = self._get_comment_id()
         self.patch_comment(
@@ -631,7 +632,7 @@ class DeleteCommentsTask(DiscussionsApiTasks):
         #self.stop()
 
     @task
-    def delete_comment(self):
+    def delete_response_comment(self):
         """
         DELETE a response
 

@@ -73,9 +73,13 @@ class DiscussionsApiTest(DiscussionsApiTasks):
         self.auto_auth(verify_ssl=False, params=params)
 
     tasks = {
-        GetThreadsTask: 5000,
-        GetThreadListTask: 2500,
-        GetCommentsTask: 2000,
+        GetThreadsTask: 1000,
+        GetThreadListTask: 500,
+        GetCommentsTask: 700,
+        PostThreadsTask: 220,
+        PostCommentsTask: 300,
+        PatchCommentsTask: 200,
+        DeleteCommentsTask: 100,
     }
 
     #tasks = {
@@ -136,9 +140,9 @@ class FullDiscussionsApiTest(DiscussionsApiTasks):
         """
         params = {
             "course_id": self.course_id,
-            "staff": "true",
-            "roles": ["Administrator"]
+            "staff": "true"
         }
+        #"roles": ["Administrator"]
         self.auto_auth(verify_ssl=False, params=params)
 
     tasks = {
